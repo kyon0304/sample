@@ -129,4 +129,8 @@ describe "User pages" do
     end
   end
 
+  describe "Account dropdown menu" do
+    it { should_not have_link("Account") }
+  end
+
 end

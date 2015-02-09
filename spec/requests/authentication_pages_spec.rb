@@ -54,7 +54,20 @@ describe "Authentication" do
         end
 
         describe "after signing in" do
-          it { should have_selector("title", text: full_title("Edit user")) }
+          it "should render the expected protected page" do
+            page.should have_selector("title", text: "Edit user")
+          end
+
+          describe "when signing in again" do
+            before do
+              visit signin_path
+              valid_signin(user)
+            end
+
+            it "should render default(profile) page" do
+              page.should have_selector("h1", text: user.name)
+            end
+          end
         end
       end
 
