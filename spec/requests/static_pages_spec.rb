@@ -34,6 +34,29 @@ describe "Static pages" do
           page.should have_selector("li##{item.id}", text: item.content)
         end
       end
+
+      #it "should have correct microposts count" do
+      #  page.should have_content(user.microposts.count)
+      #  page.should have_selector("span", text: "microposts")
+      #end
+
+#      describe "pagination" do
+#        before(:all) do
+#          50.times do |n|
+#            content = Faker::Lorem.sentence(5)
+#            user.microposts.create!(content: content)
+#          end
+#          visit root_path
+#        end
+#
+#        it { should have_selector("div.pagination") }
+#        it "should list each micropost" do
+#          user.microposts.paginate(page: 1).each do |m|
+#            page.should have_selector("li", id: m.id)
+#          end
+#        end
+#        after(:all) { user.microposts.delete_all }
+#      end
     end
   end
 
